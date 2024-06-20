@@ -14,7 +14,11 @@ func Root(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ts, err := template.ParseFiles("./internal/ui/html/home.page.html")
+	ts, err := template.ParseFiles(
+		"./internal/ui/html/home.page.html",
+		"./internal/ui/html/base.layout.html",
+		"./internal/ui/html/footer.partial.html",
+	)
 	if err != nil {
 		slog.Error(err.Error())
 		http.Error(w, err.Error(), 500)

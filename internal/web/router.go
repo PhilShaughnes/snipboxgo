@@ -11,6 +11,9 @@ func NewRouter() *http.ServeMux {
 	router.HandleFunc("GET /snippet", Show)
 	router.HandleFunc("GET /snippet/create", Create)
 
+	fileServer := http.FileServer(http.Dir("./internal/ui/static/"))
+	router.Handle("/static/", http.StripPrefix("/static", fileServer))
+
 	r := http.NewServeMux()
 	r.HandleFunc("GET /hello/{name}", hello)
 	router.Handle("/v1/", http.StripPrefix("/v1", r))
