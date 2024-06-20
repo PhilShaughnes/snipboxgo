@@ -39,7 +39,7 @@ func Logging(next http.Handler) http.Handler {
 		}
 		next.ServeHTTP(wrapped, r)
 		slog.Info(
-			"Got Request",
+			"Req",
 			slog.String("M", r.Method),
 			slog.String("URL", r.URL.Path),
 			slog.Int("S", wrapped.statusCode),
