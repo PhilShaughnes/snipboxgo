@@ -6,9 +6,9 @@ default:
 	@just --list
 
 # watch and run a go file
-watch PATH:
-	ls {{PATH}}/* | entr -c go run {{PATH}}/*.go
+watch:
+	fd -tf . | entr -rc go run .
 
 # watch and run a go file
-wtest PATH:
-	ls {{PATH}}/* | entr -c go test {{PATH}}/*.go
+wtest:
+	fd -tf . | entr -c go test .

@@ -16,7 +16,7 @@ func Root(w http.ResponseWriter, r *http.Request) {
 
 	ts, err := template.ParseFiles(
 		"./internal/ui/html/home.page.html",
-		"./internal/ui/html/base.layout.html",
+		"./internal/ui/html/base.layout2.html",
 		"./internal/ui/html/footer.partial.html",
 	)
 	if err != nil {
