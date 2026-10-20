@@ -13,6 +13,11 @@ var (
 	port = flag.Int("port", 4321, "server port")
 )
 
+type app struct {
+	logg *slog.Logger
+}
+
+// ok
 func main() {
 	flag.Parse()
 
